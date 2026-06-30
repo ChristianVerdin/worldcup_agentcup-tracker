@@ -1,0 +1,51 @@
+name: Update bracket standing
+
+on:
+  schedule:
+    # Times are UTC. 13:00 UTC = 08:00 America/Chicago (CDT); 01:00 UTC = 20:00 (CDT).
+    # In winter (CST, UTC-6) shift to '0 14 * * *' and '0 2 * * *' for 8am/8pm local.
+    - cron: "0 13 * * *"
+    - cron: "0 1 * * *"
+  workflow_dispatch: {}
+
+# allow the job to commit the refreshed README + data files
+permissions:
+  contents: write
+
+# never let two runs overlap
+concurrency:
+  group: bracket-update
+  cancel-in-progress: false
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run tracker
+        env:
+          AGENTMAIL_API_KEY: ${{ secrets.AGENTMAIL_API_KEY }}
+        run: python scripts/update.py
+
+      - name: Commit & push if changed
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "No standing changes this run."
+          else
+            git commit -m "chore: update bracket standing [skip ci]"
+            git push
+          fi
