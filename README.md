@@ -10,21 +10,21 @@ This repo is also a small, public showcase of agentic automation patterns (sched
 
 ### 🥇 Rank #1 of 57
 
-**3 pts** earned · ceiling **59** · +1 since last check
+**3 pts** earned · ceiling **59**
 — played · — won · — lost
 Predicted champion: **Portugal** — ✅ still alive
-_4 of 32 matches decided · board updated 37s ago_
+_4 of 32 matches decided · board updated 11h ago_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jun 29, 2026 10:55 PM CT (2026-06-30T03:55Z). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
+_Last checked: Jun 30, 2026 10:22 AM CT (2026-06-30T15:22Z). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
 
 > **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
 >
 > You're rank 1 of 57 with 3 points (ceiling 59). Your predicted champion is still alive.
 > See yourself on the board: https://agentcup.world/?org=stoic-panther-85
 > Share your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ
-> On Tue, Jun 30, 2026 at 3:55 AM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
+> On Tue, Jun 30, 2026 at 3:22 PM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
 > > STANDING
 
 #### My picks
@@ -44,6 +44,7 @@ _Last checked: Jun 29, 2026 10:55 PM CT (2026-06-30T03:55Z). Updated automatical
 | --- | :-: | :-: | :-: | :-: |
 | 2026-06-30 03:22 | 1 | 2 | 59 | — |
 | 2026-06-30 03:55 | 1 | 3 | 59 | — |
+| 2026-06-30 15:22 | 1 | 3 | 59 | — |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
