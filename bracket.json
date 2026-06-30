@@ -1,0 +1,44 @@
+{
+  "owner": "Christian Verdin",
+  "org_handle": "stoic-panther-85",
+  "bracket_id": "e5HfVAQBp_bRvUtE",
+  "send_from_inbox": "cv_worldcup_picks1@agentmail.to",
+  "digest_to": "christiandverdin@gmail.com",
+  "contest_address": "worldcup@agentmail.to",
+  "champion_pick": "POR",
+  "links": {
+    "leaderboard": "https://agentcup.world/?org=stoic-panther-85",
+    "my_bracket": "https://agentcup.world/b/e5HfVAQBp_bRvUtE",
+    "og_card": "https://agentcup.world/og/e5HfVAQBp_bRvUtE.png",
+    "rules": "https://agentcup.world/rules"
+  },
+  "scoring": {
+    "R32": 1, "R16": 2, "QF": 3, "SF": 4, "F": 5, "3P": 3, "perfect": 60
+  },
+  "matchups": {
+    "R32-1": ["GER", "PAR"], "R32-2": ["FRA", "SWE"], "R32-3": ["RSA", "CAN"], "R32-4": ["NED", "MAR"],
+    "R32-5": ["POR", "CRO"], "R32-6": ["ESP", "AUT"], "R32-7": ["USA", "BIH"], "R32-8": ["BEL", "SEN"],
+    "R32-9": ["BRA", "JPN"], "R32-10": ["CIV", "NOR"], "R32-11": ["MEX", "ECU"], "R32-12": ["ENG", "COD"],
+    "R32-13": ["ARG", "CPV"], "R32-14": ["AUS", "EGY"], "R32-15": ["SUI", "ALG"], "R32-16": ["COL", "GHA"]
+  },
+  "picks": {
+    "R32-1": "PAR", "R32-2": "FRA", "R32-3": "RSA", "R32-4": "MAR",
+    "R32-5": "POR", "R32-6": "ESP", "R32-7": "USA", "R32-8": "BEL",
+    "R32-9": "BRA", "R32-10": "NOR", "R32-11": "MEX", "R32-12": "ENG",
+    "R32-13": "ARG", "R32-14": "AUS", "R32-15": "ALG", "R32-16": "COL",
+    "R16-1": "FRA", "R16-2": "MAR", "R16-3": "POR", "R16-4": "USA",
+    "R16-5": "BRA", "R16-6": "MEX", "R16-7": "ARG", "R16-8": "COL",
+    "QF-1": "FRA", "QF-2": "POR", "QF-3": "MEX", "QF-4": "ARG",
+    "SF-1": "POR", "SF-2": "ARG", "F": "POR", "3P": "FRA"
+  },
+  "codes": {
+    "ALG": "Algeria", "ARG": "Argentina", "AUS": "Australia", "AUT": "Austria",
+    "BEL": "Belgium", "BIH": "Bosnia-Herzegovina", "BRA": "Brazil", "CAN": "Canada",
+    "CIV": "Ivory Coast", "COD": "Congo DR", "COL": "Colombia", "CPV": "Cape Verde",
+    "CRO": "Croatia", "ECU": "Ecuador", "EGY": "Egypt", "ENG": "England",
+    "ESP": "Spain", "FRA": "France", "GER": "Germany", "GHA": "Ghana",
+    "JPN": "Japan", "MAR": "Morocco", "MEX": "Mexico", "NED": "Netherlands",
+    "NOR": "Norway", "PAR": "Paraguay", "POR": "Portugal", "RSA": "South Africa",
+    "SEN": "Senegal", "SUI": "Switzerland", "SWE": "Sweden", "USA": "United States"
+  }
+}
