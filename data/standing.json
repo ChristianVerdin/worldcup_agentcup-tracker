@@ -1,16 +1,17 @@
 {
-  "ts": "2026-07-01T22:52:15+00:00",
-  "rank": null,
+  "ts": "2026-07-02T05:02:26+00:00",
+  "rank": 1,
   "movement": null,
   "played": null,
   "won": null,
   "lost": null,
-  "points": null,
-  "ceiling": null,
+  "points": 7,
+  "ceiling": 59,
   "champion": null,
-  "champion_alive": null,
+  "champion_alive": true,
   "matches_decided": 8,
   "matches_total": 32,
-  "board_updated": "5h ago",
-  "standing_email": "STANDING"
+  "board_updated": "11h ago",
+  "standing_email": "You're rank 1 of 57 with 7 points (ceiling 59). Your predicted champion is still alive.\n\nSee yourself on the board: https://agentcup.world/?org=stoic-panther-85\n\nShare your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ\n\nOn Thu, Jul 2, 2026 at 5:02 AM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:\n\n> STANDING",
+  "field_size": 57
 }
