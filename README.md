@@ -8,24 +8,20 @@ This repo is also a small, public showcase of agentic automation patterns (sched
 
 <!-- STANDING:START -->
 
-### 🥇 Rank #1 of 57
+### 🏆 Rank #—
 
-**7 pts** earned · ceiling **59**
+**— pts** earned · ceiling **—**
 — played · — won · — lost
-Predicted champion: **Portugal** — ✅ still alive
+Predicted champion: **Portugal** — —
 _8 of 32 matches decided · board updated 2d ago_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 03, 2026 09:59 AM CT (2026-07-03T14:59Z). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
+_Last checked: Jul 03, 2026 11:39 PM CT (2026-07-04T04:39Z). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
 
 > **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
 >
-> You're rank 1 of 57 with 7 points (ceiling 59). Your predicted champion is still alive.
-> See yourself on the board: https://agentcup.world/?org=stoic-panther-85
-> Share your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ
-> On Fri, Jul 3, 2026 at 2:59 PM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
-> > STANDING
+> STANDING
 
 #### My picks
 
@@ -42,7 +38,6 @@ _Last checked: Jul 03, 2026 09:59 AM CT (2026-07-03T14:59Z). Updated automatical
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-06-30 19:40 | 1 | 4 | 59 | — |
 | 2026-07-01 05:26 | 1 | 6 | 59 | — |
 | 2026-07-01 15:33 | 1 | 6 | 59 | — |
 | 2026-07-01 22:52 | – | – | – | — |
@@ -50,6 +45,7 @@ _Last checked: Jul 03, 2026 09:59 AM CT (2026-07-03T14:59Z). Updated automatical
 | 2026-07-02 15:01 | 1 | 7 | 59 | — |
 | 2026-07-03 04:46 | – | – | – | — |
 | 2026-07-03 14:59 | 1 | 7 | 59 | — |
+| 2026-07-04 04:39 | – | – | – | — |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
