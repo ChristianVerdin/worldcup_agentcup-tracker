@@ -1,5 +1,5 @@
 {
-  "ts": "2026-07-06T16:11:39+00:00",
+  "ts": "2026-07-06T20:14:37+00:00",
   "points": 17,
   "ceiling": 50,
   "played": 20,
@@ -99,6 +99,6 @@
     "SWE"
   ],
   "source": "local",
-  "board_updated": "16h ago",
-  "standing_email": "STANDING"
+  "rank": 29,
+  "field_size": 60
 }

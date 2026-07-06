@@ -129,6 +129,11 @@ def main() -> int:
     ap.add_argument("--no-agentmail", action="store_true")
     ap.add_argument("--no-scrape", action="store_true")
     ap.add_argument("--period", choices=["AM", "PM"], default=None)
+    ap.add_argument("--rank", type=int, default=None,
+                    help="hand-read rank off the leaderboard when the scrape/AgentMail "
+                         "reply return it blank; overrides any scraped rank")
+    ap.add_argument("--field-size", type=int, default=None,
+                    help="total number of ranked brackets (e.g. 60), read off the board")
     args = ap.parse_args()
 
     cfg = load_config()
@@ -178,6 +183,15 @@ def main() -> int:
                 print("[agentmail] no STANDING reply within the wait window")
         except Exception as exc:
             print(f"[agentmail] skipped: {exc}")
+
+    # 3b) manual rank override — the leaderboard is public but the scrape and the
+    # AgentMail STANDING reply keep returning rank blank, so a value read straight
+    # off the board and passed in always wins.
+    if args.rank is not None:
+        snap["rank"] = args.rank
+        print(f"[manual] rank={snap['rank']} (hand-read from leaderboard)")
+    if args.field_size is not None:
+        snap["field_size"] = args.field_size
 
     # 4) persist
     history = load_history()
