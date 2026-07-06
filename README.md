@@ -8,16 +8,24 @@ This repo is also a small, public showcase of agentic automation patterns (sched
 
 <!-- STANDING:START -->
 
-### 🏆 Rank #—
+### 🥇 Rank #1 of 60
 
 **17 pts** earned · ceiling **50**
 20 played · 15 won · 5 lost
 Predicted champion: **Portugal** — ✅ still alive
-_20 of 32 matches decided_
+_20 of 32 matches decided · board updated 5h ago_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 05, 2026 11:27 PM CT (2026-07-06T04:27Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
+_Last checked: Jul 06, 2026 12:16 AM CT (2026-07-06T05:16Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
+
+> **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
+>
+> You're rank 1 of 60 with 7 points (ceiling 59). Your predicted champion is still alive.
+> See yourself on the board: https://agentcup.world/?org=stoic-panther-85
+> Share your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ
+> On Mon, Jul 6, 2026 at 5:16 AM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
+> > STANDING
 
 #### My picks
 
@@ -34,7 +42,6 @@ _Last checked: Jul 05, 2026 11:27 PM CT (2026-07-06T04:27Z). Scored locally from
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-07-02 15:01 | 1 | 7 | 59 | — |
 | 2026-07-03 04:46 | – | – | – | — |
 | 2026-07-03 14:59 | 1 | 7 | 59 | — |
 | 2026-07-04 04:39 | – | – | – | — |
@@ -42,6 +49,7 @@ _Last checked: Jul 05, 2026 11:27 PM CT (2026-07-06T04:27Z). Scored locally from
 | 2026-07-05 05:00 | 1 | 7 | 59 | — |
 | 2026-07-05 14:22 | – | – | – | — |
 | 2026-07-06 04:27 | – | 17 | 50 | 20–15–5 |
+| 2026-07-06 05:16 | 1 | 17 | 50 | 20–15–5 |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
