@@ -1,17 +1,27 @@
 #!/usr/bin/env python3
-"""Twice-daily bracket tracker — orchestrates one update run.
+"""Bracket tracker — orchestrates one update run.
+
+Source of truth is LOCAL: scripts/scoring.py scores my picks against
+data/results.json. The public leaderboard has scored unreliably, so the scrape
+and the AgentMail STANDING reply are demoted to a cross-check — they can supply
+things we can't compute locally (my rank among others, field size), but if they
+disagree with the local score on any earned/ceiling/W-L field we log the
+discrepancy and keep the local number.
 
 Steps:
-  1. Scrape the leaderboard for the current standing (rank, P/W/L, points, ceiling).
-  2. Ask the contest for an official STANDING reply via AgentMail (cross-check + showcase).
-  3. Write data/standing.json, append data/history.csv.
-  4. Re-render the auto-generated block in README.md.
-  5. Email a digest to your Gmail via AgentMail.
+  1. Score locally from bracket.json + data/results.json  (authoritative).
+  2. (unless --offline) Cross-check against the scraped leaderboard; log diffs.
+  3. (unless --offline/--no-agentmail) Cross-check against the AgentMail reply;
+     log diffs; pull rank/field_size from it.
+  4. Write data/standing.json, append data/history.csv.
+  5. Re-render the auto-generated block in README.md.
+  6. (unless --offline/--no-email) Email a digest via AgentMail.
 
 Usage:
-  python scripts/update.py                 # full run (scrape + AgentMail + email)
-  python scripts/update.py --no-email      # skip the email
-  python scripts/update.py --no-agentmail  # skip the STANDING email + digest (scrape only)
+  python scripts/update.py                 # local score + cross-check + email
+  python scripts/update.py --offline       # local score only (no network at all)
+  python scripts/update.py --no-email      # skip the digest email
+  python scripts/update.py --no-agentmail  # skip STANDING + digest (scrape cross-check only)
   python scripts/update.py --period AM     # label the email "AM" / "PM" (auto by hour if omitted)
 """
 
@@ -27,12 +37,14 @@ from datetime import datetime, timezone
 # make sibling modules importable when run as `python scripts/update.py`
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
-import agentcup
-import agentmail_client as am
-import render
+import render        # stdlib-only
+import scoring       # stdlib-only
+# agentcup / agentmail_client are imported lazily so the local path needs no
+# network dependencies (requests, bs4, agentmail) installed.
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 CONFIG_PATH = os.path.join(ROOT, "bracket.json")
+RESULTS_PATH = os.path.join(ROOT, "data", "results.json")
 README_PATH = os.path.join(ROOT, "README.md")
 DATA_DIR = os.path.join(ROOT, "data")
 STANDING_JSON = os.path.join(DATA_DIR, "standing.json")
@@ -44,9 +56,18 @@ HISTORY_FIELDS = [
     "matches_decided", "matches_total",
 ]
 
+# Fields the LOCAL engine owns. If an external source reports a different value
+# for one of these, we log it and keep local.
+AUTHORITATIVE_FIELDS = ["points", "ceiling", "played", "won", "lost", "champion_alive"]
+
 
 def load_config() -> dict:
     with open(CONFIG_PATH, encoding="utf-8") as fh:
+        return json.load(fh)
+
+
+def load_results() -> dict:
+    with open(RESULTS_PATH, encoding="utf-8") as fh:
         return json.load(fh)
 
 
@@ -87,63 +108,93 @@ def update_readme(block: str) -> None:
         fh.write(content)
 
 
+def cross_check(local: dict, external: dict, source: str) -> None:
+    """Log any field where an external source disagrees with the local score.
+
+    Local always wins; this only surfaces the discrepancy so a real scoring bug
+    (ours or the contest's) is visible in the run log.
+    """
+    for key in AUTHORITATIVE_FIELDS:
+        ext = external.get(key)
+        loc = local.get(key)
+        if ext is not None and ext != loc:
+            print(f"[discrepancy] {source}.{key}={ext} != local.{key}={loc} — keeping local")
+
+
 def main() -> int:
     ap = argparse.ArgumentParser()
+    ap.add_argument("--offline", action="store_true",
+                    help="local scoring only — no scrape, no AgentMail, no email")
     ap.add_argument("--no-email", action="store_true")
     ap.add_argument("--no-agentmail", action="store_true")
+    ap.add_argument("--no-scrape", action="store_true")
     ap.add_argument("--period", choices=["AM", "PM"], default=None)
     args = ap.parse_args()
 
     cfg = load_config()
+    results_doc = load_results()
     now = datetime.now(timezone.utc)
     period = args.period or ("AM" if now.hour < 12 else "PM")
 
-    # 1) scrape standing
+    # 1) LOCAL scoring — authoritative.
+    local = scoring.compute_standing(cfg, results_doc)
     snap: dict = {"ts": now.isoformat(timespec="seconds")}
-    try:
-        scraped = agentcup.get_standing(
-            cfg["links"]["leaderboard"], cfg["org_handle"], cfg["bracket_id"]
-        )
-        snap.update(scraped)
-        print(f"[scrape] rank={snap.get('rank')} pts={snap.get('points')}/{snap.get('ceiling')} "
-              f"P-W-L={snap.get('played')}-{snap.get('won')}-{snap.get('lost')}")
-    except Exception as exc:
-        print(f"[scrape] FAILED: {exc}")
+    snap.update(local)
+    print(f"[local] pts={local['points']}/{local['ceiling']} "
+          f"P-W-L={local['played']}-{local['won']}-{local['lost']} "
+          f"champion={local['champion']} "
+          f"{'alive' if local['champion_alive'] else 'out'} "
+          f"decided={local['matches_decided']}/{local['matches_total']}")
 
-    # 2) AgentMail official STANDING reply (authoritative for the headline numbers)
-    if not args.no_agentmail:
+    # 2) leaderboard scrape — cross-check only; contributes rank we can't compute.
+    if not args.offline and not args.no_scrape:
         try:
+            import agentcup  # lazy: needs requests + bs4
+            scraped = agentcup.get_standing(
+                cfg["links"]["leaderboard"], cfg["org_handle"], cfg["bracket_id"]
+            )
+            cross_check(local, scraped, "scrape")
+            for key in ("rank", "movement", "field_size", "board_updated"):
+                if scraped.get(key) is not None:
+                    snap[key] = scraped[key]
+            print(f"[scrape] rank={snap.get('rank')} (cross-checked)")
+        except Exception as exc:
+            print(f"[scrape] skipped: {exc}")
+
+    # 3) AgentMail official STANDING reply — cross-check + rank; never overrides score.
+    if not args.offline and not args.no_agentmail:
+        try:
+            import agentmail_client as am  # lazy: needs agentmail SDK
             reply = am.request_standing(cfg["send_from_inbox"], cfg["contest_address"])
             if reply:
                 snap["standing_email"] = reply
-                # The contest reply is the source of truth for rank/points/ceiling.
-                # Overlay any value it provides on top of the (brittle) scrape.
                 parsed = am.parse_standing_reply(reply)
-                for key, val in parsed.items():
-                    if val is not None:
-                        snap[key] = val
-                print(f"[agentmail] STANDING reply parsed: rank={snap.get('rank')} "
-                      f"of {snap.get('field_size')} pts={snap.get('points')}/{snap.get('ceiling')}")
+                cross_check(local, parsed, "agentmail")
+                for key in ("rank", "field_size"):
+                    if parsed.get(key) is not None:
+                        snap[key] = parsed[key]
+                print(f"[agentmail] rank={snap.get('rank')} of {snap.get('field_size')} (cross-checked)")
             else:
                 print("[agentmail] no STANDING reply within the wait window")
         except Exception as exc:
-            print(f"[agentmail] STANDING request skipped: {exc}")
+            print(f"[agentmail] skipped: {exc}")
 
-    # 3) persist
+    # 4) persist
     history = load_history()
     prev = history[-1] if history else None
     write_standing_json(snap)
     append_history(snap)
 
-    # 4) render README
+    # 5) render README
     history_after = load_history()  # includes this run
     block = render.render_readme_block(cfg, snap, prev, history_after)
     update_readme(block)
     print("[render] README updated")
 
-    # 5) email digest
-    if not args.no_agentmail and not args.no_email:
+    # 6) email digest
+    if not args.offline and not args.no_agentmail and not args.no_email:
         try:
+            import agentmail_client as am  # lazy
             subject, text = render.email_body(cfg, snap, prev, period)
             am.send_digest(cfg["send_from_inbox"], cfg["digest_to"], subject, text)
             print(f"[email] digest sent to {cfg['digest_to']}")
