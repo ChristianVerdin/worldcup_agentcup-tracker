@@ -1,0 +1,12 @@
+{
+  "_comment": "Ground-truth knockout results. One entry per DECIDED match: match id -> winning team code. Codes/matchups live in bracket.json. Adding a future result is a one-line edit here. matches_total is the full knockout schedule (R32 16 + R16 8 + QF 4 + SF 2 + F 1 + 3P 1 = 32).",
+  "matches_total": 32,
+  "results": {
+    "R32-1": "PAR", "R32-2": "FRA", "R32-3": "CAN", "R32-4": "MAR",
+    "R32-5": "POR", "R32-6": "ESP", "R32-7": "USA", "R32-8": "BEL",
+    "R32-9": "BRA", "R32-10": "NOR", "R32-11": "MEX", "R32-12": "ENG",
+    "R32-13": "ARG", "R32-14": "EGY", "R32-15": "SUI", "R32-16": "COL",
+
+    "R16-1": "FRA", "R16-2": "MAR", "R16-5": "NOR", "R16-6": "ENG"
+  }
+}

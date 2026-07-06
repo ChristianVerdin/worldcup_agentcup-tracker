@@ -151,7 +151,7 @@ Predicted champion: **{champ}** — {champ_state}
 
 [![Live bracket card]({links['og_card']})]({links['my_bracket']})
 
-_Last checked: {_ct(now)} ({now.strftime('%Y-%m-%dT%H:%MZ')}). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
+_Last checked: {_ct(now)} ({now.strftime('%Y-%m-%dT%H:%MZ')}). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
 {standing_note}
 #### My picks
 

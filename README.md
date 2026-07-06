@@ -1,6 +1,6 @@
 # 🤖⚽ AgentMail World Cup 2026 — Live Bracket Tracker
 
-A self-updating scoreboard for my entry in the [**AgentMail World Cup 2026 Bracket Challenge**](https://agentcup.world/rules) (0,000 to the top bracket). A scheduled [GitHub Actions](.github/workflows/update.yml) job runs **twice a day**, pulls my current standing, asks the contest for an official rank through the **[AgentMail](https://agentmail.to) API**, and rewrites the live section below — no servers, no manual updates.
+A self-updating scoreboard for my entry in the [**AgentMail World Cup 2026 Bracket Challenge**](https://agentcup.world/rules) ($10,000 to the top bracket). A scheduled [GitHub Actions](.github/workflows/update.yml) job runs **twice a day**, **scores my picks locally** from the recorded match results, cross-checks that against the leaderboard and an official **[AgentMail](https://agentmail.to)** reply, and rewrites the live section below — no servers, no manual updates. Local scoring is the source of truth: the public leaderboard has scored unreliably, so when the two disagree the local number wins and the discrepancy is logged.
 
 This repo is also a small, public showcase of agentic automation patterns (scheduled cloud jobs, an AI agent operating its own email inbox, scrape-plus-API cross-checking). More capabilities will be layered on over time — see the [roadmap](#-roadmap).
 
@@ -10,18 +10,14 @@ This repo is also a small, public showcase of agentic automation patterns (sched
 
 ### 🏆 Rank #—
 
-**— pts** earned · ceiling **—**
-— played · — won · — lost
-Predicted champion: **Portugal** — —
-_8 of 32 matches decided · board updated 4d ago_
+**17 pts** earned · ceiling **50**
+20 played · 15 won · 5 lost
+Predicted champion: **Portugal** — ✅ still alive
+_20 of 32 matches decided_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 05, 2026 09:22 AM CT (2026-07-05T14:22Z). Updated automatically twice daily by [GitHub Actions](.github/workflows/update.yml), standing pulled via the [AgentMail](https://agentmail.to) API._
-
-> **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
->
-> STANDING
+_Last checked: Jul 05, 2026 11:27 PM CT (2026-07-06T04:27Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
 
 #### My picks
 
@@ -38,7 +34,6 @@ _Last checked: Jul 05, 2026 09:22 AM CT (2026-07-05T14:22Z). Updated automatical
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-07-02 05:02 | 1 | 7 | 59 | — |
 | 2026-07-02 15:01 | 1 | 7 | 59 | — |
 | 2026-07-03 04:46 | – | – | – | — |
 | 2026-07-03 14:59 | 1 | 7 | 59 | — |
@@ -46,6 +41,7 @@ _Last checked: Jul 05, 2026 09:22 AM CT (2026-07-05T14:22Z). Updated automatical
 | 2026-07-04 14:21 | 1 | 7 | 59 | — |
 | 2026-07-05 05:00 | 1 | 7 | 59 | — |
 | 2026-07-05 14:22 | – | – | – | — |
+| 2026-07-06 04:27 | – | 17 | 50 | 20–15–5 |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
@@ -60,20 +56,23 @@ _Last checked: Jul 05, 2026 09:22 AM CT (2026-07-05T14:22Z). Updated automatical
    cron 2×/day  →   │   GitHub Actions runner     │
  (13:00 & 01:00 UTC)│                             │
                     │  scripts/update.py          │
-                    │    1. scrape leaderboard ───┼──→  agentcup.world  (rank, W/L, pts, ceiling)
-                    │    2. email "STANDING"  ────┼──→  AgentMail API ──→ worldcup@agentmail.to
-                    │       ← poll inbox for reply│         (official cross-check)
-                    │    3. write data/*.json|csv │
-                    │    4. re-render README block│
-                    │    5. email digest      ────┼──→  AgentMail API ──→ my Gmail
+                    │    1. score picks locally ──┼──→  bracket.json + data/results.json  (SOURCE OF TRUTH)
+                    │    2. scrape leaderboard ───┼──→  agentcup.world   (rank + cross-check)
+                    │    3. email "STANDING"  ────┼──→  AgentMail  ──→ worldcup@agentmail.to
+                    │       ← poll (cross-check)  │         (log any disagreement, keep local)
+                    │    4. write data/*.json|csv │
+                    │    5. re-render README block│
+                    │    6. email digest      ────┼──→  AgentMail  ──→ my Gmail
                     └──────────────┬──────────────┘
                                    │ git commit + push
                                    ▼
                         public README updates
 ```
 
-- **`bracket.json`** — single source of truth: my 32 picks, the contest links, my AgentMail inbox, and the scoring table.
-- **`scripts/agentcup.py`** — fetches the server-rendered leaderboard and parses my row (rank, played/won/lost, points earned / ceiling, whether my champion is still alive).
+- **`bracket.json`** — my 32 picks, the R32 matchups, team codes, the contest links, my AgentMail inbox, and the scoring table.
+- **`data/results.json`** — the actual winner of every decided knockout match. Adding a new result is a **one-line edit** here; nothing in the code changes.
+- **`scripts/scoring.py`** — the independent, offline scorer (source of truth): reads the two files above and computes earned points, ceiling, played/won/lost, dead branches, and champion-alive. No network.
+- **`scripts/agentcup.py`** — fetches the server-rendered leaderboard and parses my row (used only for rank and as a cross-check against the local score).
 - **`scripts/agentmail_client.py`** — sends `STANDING` from my inbox to the contest and polls for the reply via the AgentMail Python SDK; also sends the digest email.
 - **`scripts/render.py`** — turns a standing snapshot into the README block, the picks grid, and the email body.
 - **`scripts/update.py`** — the orchestrator the workflow runs.
@@ -128,7 +127,7 @@ Planned additions to this showcase:
 
 ## Notes
 
-- The contest scores results itself, so figures here are as live as the leaderboard's own scoring.
+- Figures here are scored **locally** from `data/results.json` (the contest's public leaderboard has scored unreliably), so they update the moment a result is recorded — independent of when the leaderboard catches up. Run `python scripts/update.py --offline` to recompute with no network.
 - Before the Round of 32 kicks off, brackets are private; afterward they're public under a handle (mine is `stoic-panther-85`). My email address is never shown publicly by the contest.
 - Not affiliated with FIFA or AgentMail; this is a personal entry and automation demo.
 

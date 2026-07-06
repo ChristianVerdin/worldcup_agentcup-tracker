@@ -1,16 +1,102 @@
 {
-  "ts": "2026-07-05T14:22:31+00:00",
-  "rank": null,
-  "movement": null,
-  "played": null,
-  "won": null,
-  "lost": null,
-  "points": null,
-  "ceiling": null,
-  "champion": null,
-  "champion_alive": null,
-  "matches_decided": 8,
+  "ts": "2026-07-06T04:27:19+00:00",
+  "points": 17,
+  "ceiling": 50,
+  "played": 20,
+  "won": 15,
+  "lost": 5,
+  "champion": "Portugal",
+  "champion_pick": "POR",
+  "champion_alive": true,
+  "matches_decided": 20,
   "matches_total": 32,
-  "board_updated": "4d ago",
-  "standing_email": "STANDING"
+  "by_round": {
+    "R32": {
+      "won": 13,
+      "played": 16,
+      "pts": 13
+    },
+    "R16": {
+      "won": 2,
+      "played": 4,
+      "pts": 4
+    },
+    "QF": {
+      "won": 0,
+      "played": 0,
+      "pts": 0
+    },
+    "SF": {
+      "won": 0,
+      "played": 0,
+      "pts": 0
+    },
+    "F": {
+      "won": 0,
+      "played": 0,
+      "pts": 0
+    },
+    "3P": {
+      "won": 0,
+      "played": 0,
+      "pts": 0
+    }
+  },
+  "pick_status": {
+    "R32-1": "won",
+    "R32-2": "won",
+    "R32-3": "lost",
+    "R32-4": "won",
+    "R32-5": "won",
+    "R32-6": "won",
+    "R32-7": "won",
+    "R32-8": "won",
+    "R32-9": "won",
+    "R32-10": "won",
+    "R32-11": "won",
+    "R32-12": "won",
+    "R32-13": "won",
+    "R32-14": "lost",
+    "R32-15": "lost",
+    "R32-16": "won",
+    "R16-1": "won",
+    "R16-2": "won",
+    "R16-3": "open",
+    "R16-4": "open",
+    "R16-5": "lost",
+    "R16-6": "lost",
+    "R16-7": "open",
+    "R16-8": "open",
+    "QF-1": "open",
+    "QF-2": "open",
+    "QF-3": "dead",
+    "QF-4": "open",
+    "SF-1": "open",
+    "SF-2": "open",
+    "F": "open",
+    "3P": "open"
+  },
+  "eliminated": [
+    "ALG",
+    "AUS",
+    "AUT",
+    "BIH",
+    "BRA",
+    "CAN",
+    "CIV",
+    "COD",
+    "CPV",
+    "CRO",
+    "ECU",
+    "GER",
+    "GHA",
+    "JPN",
+    "MEX",
+    "NED",
+    "PAR",
+    "RSA",
+    "SEN",
+    "SWE"
+  ],
+  "source": "local"
 }
