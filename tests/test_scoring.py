@@ -4,8 +4,9 @@ Runnable two ways with no extra dependencies:
     python tests/test_scoring.py     # plain asserts, prints a summary
     pytest tests/test_scoring.py     # if pytest is installed
 
-The headline assertion mirrors the ground truth after 8 of 32 knockout matches'
-results were entered (all 16 R32 + 4 R16): 17 pts, ceiling 50, 20-15-5.
+The headline assertion mirrors the ground truth after 21 of 32 knockout matches
+were entered (all 16 R32 + 5 R16). Spain beat Portugal in R16-3, eliminating the
+champion pick: 17 pts, ceiling 36, 21-15-6, champion out.
 """
 
 from __future__ import annotations
@@ -33,13 +34,13 @@ def test_standing_matches_ground_truth():
     s = scoring.compute_standing(cfg, results_doc)
 
     assert s["points"] == 17, s["points"]
-    assert s["ceiling"] == 50, s["ceiling"]
-    assert s["played"] == 20, s["played"]
+    assert s["ceiling"] == 36, s["ceiling"]
+    assert s["played"] == 21, s["played"]
     assert s["won"] == 15, s["won"]
-    assert s["lost"] == 5, s["lost"]
+    assert s["lost"] == 6, s["lost"]
     assert s["champion_pick"] == "POR"
-    assert s["champion_alive"] is True
-    assert s["matches_decided"] == 20  # 16 R32 + 4 R16 with recorded winners
+    assert s["champion_alive"] is False  # Portugal knocked out by Spain in R16-3
+    assert s["matches_decided"] == 21  # 16 R32 + 5 R16 with recorded winners
 
 
 def test_round_of():
@@ -50,7 +51,7 @@ def test_round_of():
 
 
 def test_r32_misses_and_dead_branches():
-    """The three R32 misses are RSA/AUS/ALG; dead downstream branches are BRA & MEX."""
+    """The three R32 misses are RSA/AUS/ALG; dead downstream branches are BRA, MEX & POR."""
     cfg, results_doc = _load()
     s = scoring.compute_standing(cfg, results_doc)
 
@@ -60,11 +61,12 @@ def test_r32_misses_and_dead_branches():
     ]
     assert sorted(cfg["picks"][m] for m in r32_losses) == ["ALG", "AUS", "RSA"]
 
-    # Brazil and Mexico were advanced deep but knocked out in the R16.
-    for dead in ("BRA", "MEX"):
+    # Brazil, Mexico and now Portugal were advanced deep but knocked out.
+    for dead in ("BRA", "MEX", "POR"):
         assert dead in s["eliminated"]
-    # QF-3 (my Mexico pick) is a dead branch: still undecided but unreachable.
-    assert s["pick_status"]["QF-3"] == "dead"
+    # QF-3 (Mexico) was already dead; Portugal's exit kills QF-2, SF-1 and the Final.
+    for dead_branch in ("QF-3", "QF-2", "SF-1", "F"):
+        assert s["pick_status"][dead_branch] == "dead", dead_branch
 
 
 def test_by_round_breakdown():
@@ -72,7 +74,7 @@ def test_by_round_breakdown():
     s = scoring.compute_standing(cfg, results_doc)
     br = s["by_round"]
     assert br["R32"] == {"won": 13, "played": 16, "pts": 13}, br["R32"]
-    assert br["R16"] == {"won": 2, "played": 4, "pts": 4}, br["R16"]
+    assert br["R16"] == {"won": 2, "played": 5, "pts": 4}, br["R16"]
     assert br["QF"]["played"] == 0
 
 

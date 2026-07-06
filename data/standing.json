@@ -1,14 +1,14 @@
 {
-  "ts": "2026-07-06T20:14:37+00:00",
+  "ts": "2026-07-06T21:09:03+00:00",
   "points": 17,
-  "ceiling": 50,
-  "played": 20,
+  "ceiling": 36,
+  "played": 21,
   "won": 15,
-  "lost": 5,
+  "lost": 6,
   "champion": "Portugal",
   "champion_pick": "POR",
-  "champion_alive": true,
-  "matches_decided": 20,
+  "champion_alive": false,
+  "matches_decided": 21,
   "matches_total": 32,
   "by_round": {
     "R32": {
@@ -18,7 +18,7 @@
     },
     "R16": {
       "won": 2,
-      "played": 4,
+      "played": 5,
       "pts": 4
     },
     "QF": {
@@ -61,19 +61,19 @@
     "R32-16": "won",
     "R16-1": "won",
     "R16-2": "won",
-    "R16-3": "open",
+    "R16-3": "lost",
     "R16-4": "open",
     "R16-5": "lost",
     "R16-6": "lost",
     "R16-7": "open",
     "R16-8": "open",
     "QF-1": "open",
-    "QF-2": "open",
+    "QF-2": "dead",
     "QF-3": "dead",
     "QF-4": "open",
-    "SF-1": "open",
+    "SF-1": "dead",
     "SF-2": "open",
-    "F": "open",
+    "F": "dead",
     "3P": "open"
   },
   "eliminated": [
@@ -94,11 +94,10 @@
     "MEX",
     "NED",
     "PAR",
+    "POR",
     "RSA",
     "SEN",
     "SWE"
   ],
-  "source": "local",
-  "rank": 29,
-  "field_size": 60
+  "source": "local"
 }
