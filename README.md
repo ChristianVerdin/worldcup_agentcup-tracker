@@ -8,16 +8,16 @@ This repo is also a small, public showcase of agentic automation patterns (sched
 
 <!-- STANDING:START -->
 
-### 🏆 Rank #29 of 60
+### 🏆 Rank #—
 
-**17 pts** earned · ceiling **50**
-20 played · 15 won · 5 lost
-Predicted champion: **Portugal** — ✅ still alive
-_20 of 32 matches decided_
+**17 pts** earned · ceiling **36**
+21 played · 15 won · 6 lost
+Predicted champion: **Portugal** — ❌ eliminated
+_21 of 32 matches decided_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 06, 2026 03:14 PM CT (2026-07-06T20:14Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
+_Last checked: Jul 06, 2026 04:09 PM CT (2026-07-06T21:09Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
 
 #### My picks
 
@@ -34,7 +34,6 @@ _Last checked: Jul 06, 2026 03:14 PM CT (2026-07-06T20:14Z). Scored locally from
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-07-04 04:39 | – | – | – | — |
 | 2026-07-04 14:21 | 1 | 7 | 59 | — |
 | 2026-07-05 05:00 | 1 | 7 | 59 | — |
 | 2026-07-05 14:22 | – | – | – | — |
@@ -42,6 +41,7 @@ _Last checked: Jul 06, 2026 03:14 PM CT (2026-07-06T20:14Z). Scored locally from
 | 2026-07-06 05:16 | 1 | 17 | 50 | 20–15–5 |
 | 2026-07-06 16:11 | – | 17 | 50 | 20–15–5 |
 | 2026-07-06 20:14 | 29 | 17 | 50 | 20–15–5 |
+| 2026-07-06 21:09 | – | 17 | 36 | 21–15–6 |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
