@@ -1,5 +1,5 @@
 {
-  "ts": "2026-07-12T04:27:53+00:00",
+  "ts": "2026-07-12T14:20:03+00:00",
   "points": 17,
   "ceiling": 36,
   "played": 21,
@@ -100,8 +100,6 @@
     "SWE"
   ],
   "source": "local",
-  "board_updated": "4d ago",
-  "standing_email": "You're rank 44 of 62 with 19 points (ceiling 32). Your predicted champion is out.\n\nSee yourself on the board: https://agentcup.world/?org=stoic-panther-85\n\nShare your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ\n\nOn Sun, Jul 12, 2026 at 4:27 AM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:\n\n> STANDING",
-  "rank": 44,
-  "field_size": 62
+  "board_updated": "5d ago",
+  "standing_email": "STANDING"
 }
