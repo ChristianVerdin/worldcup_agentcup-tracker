@@ -17,14 +17,14 @@ _21 of 32 matches decided · board updated 3d ago_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 18, 2026 09:12 AM CT (2026-07-18T14:12Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
+_Last checked: Jul 18, 2026 11:24 PM CT (2026-07-19T04:24Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
 
 > **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
 >
 > You're rank 35 of 62 with 29 points (ceiling 29). Your predicted champion is out.
 > See yourself on the board: https://agentcup.world/?org=stoic-panther-85
 > Share your bracket: https://agentcup.world/b/e5HfVAQBp_bRvUtE?me=Fzm_5xPhlXyoghi-CYdNqMHQ
-> On Sat, Jul 18, 2026 at 2:12 PM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
+> On Sun, Jul 19, 2026 at 4:24 AM UTC AgentMail <cv_worldcup_picks1@agentmail.to> wrote:
 > > STANDING
 
 #### My picks
@@ -42,7 +42,6 @@ _Last checked: Jul 18, 2026 09:12 AM CT (2026-07-18T14:12Z). Scored locally from
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-07-15 04:09 | 46 | 17 | 36 | 21–15–6 |
 | 2026-07-15 14:30 | 46 | 17 | 36 | 21–15–6 |
 | 2026-07-16 04:12 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-16 14:50 | 35 | 17 | 36 | 21–15–6 |
@@ -50,6 +49,7 @@ _Last checked: Jul 18, 2026 09:12 AM CT (2026-07-18T14:12Z). Scored locally from
 | 2026-07-17 14:22 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-18 03:57 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-18 14:12 | 35 | 17 | 36 | 21–15–6 |
+| 2026-07-19 04:24 | 35 | 17 | 36 | 21–15–6 |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
