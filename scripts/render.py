@@ -114,6 +114,12 @@ def render_readme_block(cfg: dict, snap: dict, prev: dict | None, history: list[
     alive = snap.get("champion_alive")
     champ_state = "✅ still alive" if alive else ("❌ eliminated" if alive is False else "—")
 
+    total_matches = snap.get("matches_total") or 32
+    final = (
+        snap.get("matches_decided") is not None
+        and snap["matches_decided"] >= total_matches
+    )
+
     decided = ""
     if snap.get("matches_decided") is not None:
         total = snap.get("matches_total") or 32
@@ -124,12 +130,30 @@ def render_readme_block(cfg: dict, snap: dict, prev: dict | None, history: list[
     rank_text = f"Rank #{_d(snap.get('rank'))}"
     if snap.get("field_size"):
         rank_text += f" of {snap['field_size']}"
-    rank_line = f"### {badge} {rank_text}{movement_str(delta_rank)}"
+    rank_line = f"### {badge} {rank_text}{movement_str(delta_rank)}{' — Final' if final else ''}"
     pts_line = f"**{_d(snap.get('points'))} pts** earned · ceiling **{_d(snap.get('ceiling'))}**"
     if delta_pts:
         pts_line += f" · {'+' if delta_pts > 0 else ''}{delta_pts} since last check"
 
     pwl = f"{_d(snap.get('played'))} played · {_d(snap.get('won'))} won · {_d(snap.get('lost'))} lost"
+
+    champ_actual = snap.get("champion_actual")
+    champion_line = f"Predicted champion: **{champ}** — {champ_state}"
+    if final and champ_actual:
+        champion_line += f"\nTournament won by **{champ_actual}** 🏆"
+
+    if final:
+        footer_note = (
+            f"_Final standing — the tournament is over; all {total_matches} knockout matches "
+            "are decided. Scored locally from `data/results.json`. The twice-daily "
+            "[GitHub Actions](.github/workflows/update.yml) refresh has been retired._"
+        )
+    else:
+        footer_note = (
+            f"_Last checked: {_ct(now)} ({now.strftime('%Y-%m-%dT%H:%MZ')}). Scored locally from "
+            "`data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), "
+            "with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._"
+        )
 
     standing_note = ""
     if snap.get("standing_email"):
@@ -146,12 +170,12 @@ def render_readme_block(cfg: dict, snap: dict, prev: dict | None, history: list[
 
 {pts_line}
 {pwl}
-Predicted champion: **{champ}** — {champ_state}
+{champion_line}
 {('_' + decided + '_') if decided else ''}
 
 [![Live bracket card]({links['og_card']})]({links['my_bracket']})
 
-_Last checked: {_ct(now)} ({now.strftime('%Y-%m-%dT%H:%MZ')}). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
+{footer_note}
 {standing_note}
 #### My picks
 

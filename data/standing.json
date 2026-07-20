@@ -1,14 +1,15 @@
 {
-  "ts": "2026-07-20T14:59:54+00:00",
-  "points": 17,
-  "ceiling": 36,
-  "played": 21,
-  "won": 15,
-  "lost": 6,
+  "ts": "2026-07-20T23:56:40+00:00",
+  "points": 29,
+  "ceiling": 29,
+  "played": 32,
+  "won": 19,
+  "lost": 13,
   "champion": "Portugal",
   "champion_pick": "POR",
   "champion_alive": false,
-  "matches_decided": 21,
+  "champion_actual": "Spain",
+  "matches_decided": 32,
   "matches_total": 32,
   "by_round": {
     "R32": {
@@ -17,28 +18,28 @@
       "pts": 13
     },
     "R16": {
-      "won": 2,
-      "played": 5,
-      "pts": 4
+      "won": 3,
+      "played": 8,
+      "pts": 6
     },
     "QF": {
-      "won": 0,
-      "played": 0,
-      "pts": 0
+      "won": 2,
+      "played": 4,
+      "pts": 6
     },
     "SF": {
-      "won": 0,
-      "played": 0,
-      "pts": 0
+      "won": 1,
+      "played": 2,
+      "pts": 4
     },
     "F": {
       "won": 0,
-      "played": 0,
+      "played": 1,
       "pts": 0
     },
     "3P": {
       "won": 0,
-      "played": 0,
+      "played": 1,
       "pts": 0
     }
   },
@@ -62,44 +63,54 @@
     "R16-1": "won",
     "R16-2": "won",
     "R16-3": "lost",
-    "R16-4": "open",
+    "R16-4": "lost",
     "R16-5": "lost",
     "R16-6": "lost",
-    "R16-7": "open",
-    "R16-8": "open",
-    "QF-1": "open",
-    "QF-2": "dead",
-    "QF-3": "dead",
-    "QF-4": "open",
-    "SF-1": "dead",
-    "SF-2": "open",
-    "F": "dead",
-    "3P": "open"
+    "R16-7": "won",
+    "R16-8": "lost",
+    "QF-1": "won",
+    "QF-2": "lost",
+    "QF-3": "lost",
+    "QF-4": "won",
+    "SF-1": "lost",
+    "SF-2": "won",
+    "F": "lost",
+    "3P": "lost"
   },
   "eliminated": [
     "ALG",
+    "ARG",
     "AUS",
     "AUT",
+    "BEL",
     "BIH",
     "BRA",
     "CAN",
     "CIV",
     "COD",
+    "COL",
     "CPV",
     "CRO",
     "ECU",
+    "EGY",
+    "ENG",
+    "FRA",
     "GER",
     "GHA",
     "JPN",
+    "MAR",
     "MEX",
     "NED",
+    "NOR",
     "PAR",
     "POR",
     "RSA",
     "SEN",
-    "SWE"
+    "SUI",
+    "SWE",
+    "USA"
   ],
   "source": "local",
-  "board_updated": "5d ago",
-  "standing_email": "STANDING"
+  "rank": 35,
+  "field_size": 62
 }
