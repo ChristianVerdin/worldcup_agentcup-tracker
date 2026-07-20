@@ -121,6 +121,10 @@ def compute_standing(cfg: dict, results_doc: dict) -> dict:
 
     champion_alive = champion_pick not in eliminated
 
+    # The tournament's actual winner is the winner of the Final, once it's played.
+    champ_actual_code = results.get("F")
+    champion_actual = codes.get(champ_actual_code, champ_actual_code) if champ_actual_code else None
+
     return {
         "points": earned,
         "ceiling": ceiling,
@@ -130,6 +134,7 @@ def compute_standing(cfg: dict, results_doc: dict) -> dict:
         "champion": codes.get(champion_pick, champion_pick),
         "champion_pick": champion_pick,
         "champion_alive": champion_alive,
+        "champion_actual": champion_actual,
         "matches_decided": len(results),
         "matches_total": matches_total,
         "by_round": by_round,

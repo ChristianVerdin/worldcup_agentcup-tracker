@@ -12,3 +12,6 @@ venv/
 
 # os
 .DS_Store
+
+# local scrape cache (firecrawl)
+.firecrawl/

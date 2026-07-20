@@ -1,27 +1,26 @@
-# 🤖⚽ AgentMail World Cup 2026 — Live Bracket Tracker
+# 🤖⚽ AgentMail World Cup 2026 — Bracket Tracker (Final)
 
-A self-updating scoreboard for my entry in the [**AgentMail World Cup 2026 Bracket Challenge**](https://agentcup.world/rules) ($10,000 to the top bracket). A scheduled [GitHub Actions](.github/workflows/update.yml) job runs **twice a day**, **scores my picks locally** from the recorded match results, cross-checks that against the leaderboard and an official **[AgentMail](https://agentmail.to)** reply, and rewrites the live section below — no servers, no manual updates. Local scoring is the source of truth: the public leaderboard has scored unreliably, so when the two disagree the local number wins and the discrepancy is logged.
+A self-scoring scoreboard for my entry in the [**AgentMail World Cup 2026 Bracket Challenge**](https://agentcup.world/rules) ($10,000 to the top bracket). Throughout the tournament a scheduled [GitHub Actions](.github/workflows/update.yml) job ran **twice a day**, **scored my picks locally** from the recorded match results, cross-checked that against the leaderboard and an official **[AgentMail](https://agentmail.to)** reply, and rewrote the standing section below — no servers, no manual updates. Local scoring was the source of truth: the public leaderboard scored unreliably, so when the two disagreed the local number won and the discrepancy was logged.
 
-This repo is also a small, public showcase of agentic automation patterns (scheduled cloud jobs, an AI agent operating its own email inbox, scrape-plus-API cross-checking). More capabilities will be layered on over time — see the [roadmap](#-roadmap).
+**🏁 Final result:** finished **#35 of 62** with **29 points** (19–13). **Spain** won the tournament, beating Argentina in the final; my predicted champion, **Portugal**, was knocked out in the Round of 16. The 2026 tournament is over, so the twice-daily refresh has been **retired** and the standing below is frozen at the final result.
+
+This repo is also a small, public showcase of agentic automation patterns (scheduled cloud jobs, an AI agent operating its own email inbox, scrape-plus-API cross-checking); it stays up as a reference for those patterns now that the 2026 run is complete — see the [roadmap](#-roadmap).
 
 ---
 
 <!-- STANDING:START -->
 
-### 🏆 Rank #—
+### 🏆 Rank #35 of 62 — Final
 
-**17 pts** earned · ceiling **36**
-21 played · 15 won · 6 lost
+**29 pts** earned · ceiling **29** · +12 since last check
+32 played · 19 won · 13 lost
 Predicted champion: **Portugal** — ❌ eliminated
-_21 of 32 matches decided · board updated 5d ago_
+Tournament won by **Spain** 🏆
+_32 of 32 matches decided_
 
 [![Live bracket card](https://agentcup.world/og/e5HfVAQBp_bRvUtE.png)](https://agentcup.world/b/e5HfVAQBp_bRvUtE)
 
-_Last checked: Jul 20, 2026 10:00 AM CT (2026-07-20T15:00Z). Scored locally from `data/results.json`; refreshed twice daily by [GitHub Actions](.github/workflows/update.yml), with the live leaderboard and the [AgentMail](https://agentmail.to) reply kept as a cross-check._
-
-> **AgentMail cross-check** (live reply from `worldcup@agentmail.to`):
->
-> STANDING
+_Final standing — the tournament is over; all 32 knockout matches are decided. Scored locally from `data/results.json`. The twice-daily [GitHub Actions](.github/workflows/update.yml) refresh has been retired._
 
 #### My picks
 
@@ -38,7 +37,6 @@ _Last checked: Jul 20, 2026 10:00 AM CT (2026-07-20T15:00Z). Scored locally from
 
 | Checked (UTC) | Rank | Points | Ceiling | P–W–L |
 | --- | :-: | :-: | :-: | :-: |
-| 2026-07-17 04:11 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-17 14:22 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-18 03:57 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-18 14:12 | 35 | 17 | 36 | 21–15–6 |
@@ -46,6 +44,7 @@ _Last checked: Jul 20, 2026 10:00 AM CT (2026-07-20T15:00Z). Scored locally from
 | 2026-07-19 14:16 | – | 17 | 36 | 21–15–6 |
 | 2026-07-20 04:39 | 35 | 17 | 36 | 21–15–6 |
 | 2026-07-20 14:59 | – | 17 | 36 | 21–15–6 |
+| 2026-07-20 23:56 | 35 | 29 | 29 | 32–19–13 |
 
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
@@ -117,11 +116,13 @@ python scripts/update.py --no-agentmail  # scrape + render only
 
 ## Schedule & timezone
 
-Triggers are `0 13 * * *` and `0 1 * * *` (UTC) = **08:00 and 20:00 America/Chicago during CDT**. In winter (CST, UTC−6) shift them to `0 14 * * *` and `0 2 * * *` to keep 8am/8pm local. GitHub's scheduler is best-effort and can lag a few minutes under load, and scheduled workflows only run from the **default branch**.
+> **Retired.** The scheduled triggers were removed once the 2026 tournament finished — only the manual **Run workflow** button (`workflow_dispatch`) remains. The rest of this section describes how the twice-daily cadence worked while it was live.
+
+While running, the triggers were `0 13 * * *` and `0 1 * * *` (UTC) = **08:00 and 20:00 America/Chicago during CDT** (in winter, CST/UTC−6, they would shift to `0 14 * * *` and `0 2 * * *` to keep 8am/8pm local). GitHub's scheduler is best-effort and can lag a few minutes under load, and scheduled workflows only run from the **default branch**.
 
 ## 🗺 Roadmap
 
-Planned additions to this showcase:
+Ideas that were on deck when the 2026 run wrapped — the tracker itself is complete and frozen at the final result:
 
 - **Per-match ✅/❌ grid** — fold in actual World Cup results to color each pick, not just the round tally.
 - **Rank sparkline** — render `history.csv` as an SVG trend committed alongside the README.
