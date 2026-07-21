@@ -1,0 +1,51 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 860 430" width="860" height="430" font-family="system-ui,-apple-system,'Segoe UI',Roboto,sans-serif" role="img" aria-label="Leaderboard rank over time: peaked at #1, fell to #46 after Portugal was eliminated, finished #35 of 62.">
+<rect x="1" y="1" width="858" height="428" rx="16" fill="#fcfcfb" stroke="rgba(11,11,11,0.10)" stroke-width="1"/>
+<text x="28" y="42" font-size="20" font-weight="700" fill="#0b0b0b">Leaderboard rank over time</text>
+<text x="28" y="64" font-size="12.5" fill="#52514e">AgentMail World Cup 2026 &#183; 62 brackets &#183; lower is better (#1 = top of the board)</text>
+<rect x="540" y="26" width="92" height="34" rx="8" fill="#f2f1ec"/>
+<text x="550" y="40" font-size="10" letter-spacing="0.5" fill="#898781">PEAK</text>
+<text x="550" y="54" font-size="14" font-weight="700" fill="#0b0b0b">#1</text>
+<rect x="640" y="26" width="92" height="34" rx="8" fill="#f2f1ec"/>
+<text x="650" y="40" font-size="10" letter-spacing="0.5" fill="#898781">LOW</text>
+<text x="650" y="54" font-size="14" font-weight="700" fill="#0b0b0b">#46</text>
+<rect x="740" y="26" width="92" height="34" rx="8" fill="#f2f1ec"/>
+<text x="750" y="40" font-size="10" letter-spacing="0.5" fill="#898781">FINAL</text>
+<text x="750" y="54" font-size="14" font-weight="700" fill="#0b0b0b">#35 / 62</text>
+<line x1="70" y1="110.0" x2="764" y2="110.0" stroke="#e1e0d9" stroke-width="1"/>
+<text x="60" y="114.0" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">#1</text>
+<line x1="70" y1="161.3" x2="764" y2="161.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="60" y="165.3" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">#10</text>
+<line x1="70" y1="218.3" x2="764" y2="218.3" stroke="#e1e0d9" stroke-width="1"/>
+<text x="60" y="222.3" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">#20</text>
+<line x1="70" y1="275.4" x2="764" y2="275.4" stroke="#e1e0d9" stroke-width="1"/>
+<text x="60" y="279.4" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">#30</text>
+<line x1="70" y1="332.4" x2="764" y2="332.4" stroke="#e1e0d9" stroke-width="1"/>
+<text x="60" y="336.4" font-size="11" text-anchor="end" fill="#898781" font-variant-numeric="tabular-nums">#40</text>
+<line x1="70.0" y1="110" x2="70.0" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="70.0" y="400" font-size="11" text-anchor="middle" fill="#898781">Jun 30</text>
+<line x1="198.4" y1="110" x2="198.4" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="198.4" y="400" font-size="11" text-anchor="middle" fill="#898781">Jul 4</text>
+<line x1="331.5" y1="110" x2="331.5" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="331.5" y="400" font-size="11" text-anchor="middle" fill="#898781">Jul 8</text>
+<line x1="464.6" y1="110" x2="464.6" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="464.6" y="400" font-size="11" text-anchor="middle" fill="#898781">Jul 12</text>
+<line x1="597.7" y1="110" x2="597.7" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="597.7" y="400" font-size="11" text-anchor="middle" fill="#898781">Jul 16</text>
+<line x1="730.8" y1="110" x2="730.8" y2="378" stroke="#e1e0d9" stroke-width="1" opacity="0.5"/>
+<text x="730.8" y="400" font-size="11" text-anchor="middle" fill="#898781">Jul 20</text>
+<line x1="70" y1="378" x2="764" y2="378" stroke="#c3c2b7" stroke-width="1.5"/>
+<line x1="294.3" y1="106" x2="294.3" y2="378" stroke="#d03b3b" stroke-width="1.5" stroke-dasharray="4 4" opacity="0.85"/>
+<path d="M294.3 106 l 62 0 l 0 15 l -62 0 z" fill="#d03b3b"/>
+<text x="300.3" y="117.0" font-size="10.5" font-weight="700" fill="#ffffff">R16 EXIT</text>
+<text x="302.3" y="144.0" font-size="12" font-weight="600" fill="#d03b3b">Portugal eliminated</text>
+<text x="302.3" y="160.0" font-size="11" fill="#52514e">champion pick busted</text>
+<path d="M70.0 110.0 L70.8 110.0 L86.6 110.0 L92.6 110.0 L106.2 110.0 L120.2 110.0 L138.9 110.0 L152.7 110.0 L185.9 110.0 L218.3 110.0 L238.6 110.0 L272.3 110.0 L293.0 269.7 L305.1 281.1 L319.9 281.1 L337.5 355.2 L352.4 355.2 L371.7 355.2 L404.9 355.2 L419.4 355.2 L437.3 355.2 L451.1 355.2 L470.8 355.2 L504.2 355.2 L519.5 355.2 L536.9 360.9 L551.3 360.9 L570.2 366.6 L584.6 366.6 L603.6 303.9 L618.3 303.9 L636.8 303.9 L650.9 303.9 L669.7 303.9 L683.9 303.9 L703.6 303.9 L737.3 303.9 L764.0 303.9" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" stroke-linecap="round"/>
+<circle cx="70.0" cy="110.0" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="80.0" y="130.0" font-size="12" font-weight="600" fill="#52514e">Led early at #1</text>
+<circle cx="570.2" cy="366.6" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="570.2" cy="366.6" r="5" fill="#d03b3b" stroke="#fcfcfb" stroke-width="2"/>
+<text x="582.2" y="371.6" font-size="12" font-weight="700" fill="#d03b3b">#46 low</text>
+<circle cx="764.0" cy="303.9" r="5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="776.0" y="301.9" font-size="15" font-weight="800" fill="#0b0b0b">#35</text>
+<text x="776.0" y="317.9" font-size="11" fill="#52514e">final</text>
+</svg>

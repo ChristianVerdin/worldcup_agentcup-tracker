@@ -199,11 +199,17 @@ def main() -> int:
     write_standing_json(snap)
     append_history(snap)
 
-    # 5) render README
+    # 5) render README + regenerate the rank-history chart (SVG, both themes)
     history_after = load_history()  # includes this run
     block = render.render_readme_block(cfg, snap, prev, history_after)
     update_readme(block)
     print("[render] README updated")
+    try:
+        import chart  # stdlib-only
+        chart.render_all(ROOT)
+        print("[chart] rank-history SVGs regenerated")
+    except Exception as exc:
+        print(f"[chart] skipped: {exc}")
 
     # 6) email digest
     if not args.offline and not args.no_agentmail and not args.no_email:
