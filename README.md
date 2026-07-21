@@ -1,5 +1,15 @@
 # 🤖⚽ AgentMail World Cup 2026 — Bracket Tracker (Final)
 
+<div align="center">
+  <a name="rank-chart"></a>
+  <picture>
+    <source media="(prefers-color-scheme: dark)" srcset="assets/rank-history-dark.svg">
+    <img alt="Leaderboard rank over time: led at #1 through the group stage, fell off a cliff to #46 when Portugal (the champion pick) was eliminated in the Round of 16, then recovered to finish #35 of 62." src="assets/rank-history-light.svg" width="860">
+  </picture>
+  <br>
+  <em>The whole season in one line — <strong>#1</strong> through the group stage, off a cliff when Portugal (my champion pick) fell in the Round of 16, back to a final <strong>#35 of 62</strong>. Rendered from <a href="data/history.csv"><code>data/history.csv</code></a> by <a href="scripts/chart.py"><code>scripts/chart.py</code></a>.</em>
+</div>
+
 A self-scoring scoreboard for my entry in the [**AgentMail World Cup 2026 Bracket Challenge**](https://agentcup.world/rules) ($10,000 to the top bracket). Throughout the tournament a scheduled [GitHub Actions](.github/workflows/update.yml) job ran **twice a day**, **scored my picks locally** from the recorded match results, cross-checked that against the leaderboard and an official **[AgentMail](https://agentmail.to)** reply, and rewrote the standing section below — no servers, no manual updates. Local scoring was the source of truth: the public leaderboard scored unreliably, so when the two disagreed the local number won and the discrepancy was logged.
 
 **🏁 Final result:** finished **#35 of 62** with **29 points** (19–13). **Spain** won the tournament, beating Argentina in the final; my predicted champion, **Portugal**, was knocked out in the Round of 16. The 2026 tournament is over, so the twice-daily refresh has been **retired** and the standing below is frozen at the final result.
@@ -49,17 +59,6 @@ _Final standing — the tournament is over; all 32 knockout matches are decided.
 [Leaderboard](https://agentcup.world/?org=stoic-panther-85) · [My bracket](https://agentcup.world/b/e5HfVAQBp_bRvUtE) · [Rules](https://agentcup.world/rules)
 
 <!-- STANDING:END -->
-
----
-
-## 📈 Rank through the tournament
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="assets/rank-history-dark.svg">
-  <img alt="Leaderboard rank over time: led at #1 through the group stage, fell off a cliff to #46 when Portugal (the champion pick) was eliminated in the Round of 16, then recovered to finish #35 of 62." src="assets/rank-history-light.svg" width="100%">
-</picture>
-
-The whole season in one line. My bracket **led the board at #1** through the group stage, then **fell off a cliff the moment Portugal — my champion pick — was knocked out in the Round of 16**, bottoming out at **#46**. As the rest of the field's brackets busted too, it clawed back to a **final #35 of 62**. The chart is rendered from [`data/history.csv`](data/history.csv) by [`scripts/chart.py`](scripts/chart.py) (pure stdlib SVG, light + dark themes).
 
 ---
 
@@ -137,7 +136,7 @@ While running, the triggers were `0 13 * * *` and `0 1 * * *` (UTC) = **08:00 an
 Ideas that were on deck when the 2026 run wrapped — the tracker itself is complete and frozen at the final result:
 
 - **Per-match ✅/❌ grid** — fold in actual World Cup results to color each pick, not just the round tally.
-- ~~**Rank sparkline** — render `history.csv` as an SVG trend committed alongside the README.~~ ✅ **Done** — see [Rank through the tournament](#-rank-through-the-tournament) (`scripts/chart.py`).
+- ~~**Rank sparkline** — render `history.csv` as an SVG trend committed alongside the README.~~ ✅ **Done** — the [rank chart](#rank-chart) at the top of this README (`scripts/chart.py`).
 - **GitHub Pages dashboard** — a richer public page beyond the README.
 - **Webhook-driven updates** — trigger a refresh the moment AgentMail receives a scoring email, via an `agentmail` inbound webhook, instead of waiting for the next cron.
 - **Multi-bracket support** — track several entries (and friends') on one board.
