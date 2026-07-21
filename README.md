@@ -127,7 +127,7 @@ python scripts/update.py --no-agentmail  # scrape + render only
 
 ## Schedule & timezone
 
-> **Retired.** The scheduled triggers were removed once the 2026 tournament finished — only the manual **Run workflow** button (`workflow_dispatch`) remains. The rest of this section describes how the twice-daily cadence worked while it was live.
+> **Retired & paused.** Once the 2026 tournament finished, the scheduled triggers were removed and the workflow itself was **disabled** in the repo's Actions tab — nothing runs automatically anymore. The `workflow_dispatch` trigger is still defined, so re-enabling the workflow restores the manual **Run workflow** button. The rest of this section describes how the twice-daily cadence worked while it was live.
 
 While running, the triggers were `0 13 * * *` and `0 1 * * *` (UTC) = **08:00 and 20:00 America/Chicago during CDT** (in winter, CST/UTC−6, they would shift to `0 14 * * *` and `0 2 * * *` to keep 8am/8pm local). GitHub's scheduler is best-effort and can lag a few minutes under load, and scheduled workflows only run from the **default branch**.
 
