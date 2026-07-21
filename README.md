@@ -52,6 +52,17 @@ _Final standing — the tournament is over; all 32 knockout matches are decided.
 
 ---
 
+## 📈 Rank through the tournament
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="assets/rank-history-dark.svg">
+  <img alt="Leaderboard rank over time: led at #1 through the group stage, fell off a cliff to #46 when Portugal (the champion pick) was eliminated in the Round of 16, then recovered to finish #35 of 62." src="assets/rank-history-light.svg" width="100%">
+</picture>
+
+The whole season in one line. My bracket **led the board at #1** through the group stage, then **fell off a cliff the moment Portugal — my champion pick — was knocked out in the Round of 16**, bottoming out at **#46**. As the rest of the field's brackets busted too, it clawed back to a **final #35 of 62**. The chart is rendered from [`data/history.csv`](data/history.csv) by [`scripts/chart.py`](scripts/chart.py) (pure stdlib SVG, light + dark themes).
+
+---
+
 ## How it works
 
 ```
@@ -78,6 +89,7 @@ _Final standing — the tournament is over; all 32 knockout matches are decided.
 - **`scripts/agentcup.py`** — fetches the server-rendered leaderboard and parses my row (used only for rank and as a cross-check against the local score).
 - **`scripts/agentmail_client.py`** — sends `STANDING` from my inbox to the contest and polls for the reply via the AgentMail Python SDK; also sends the digest email.
 - **`scripts/render.py`** — turns a standing snapshot into the README block, the picks grid, and the email body.
+- **`scripts/chart.py`** — renders the rank-over-time chart from `data/history.csv` into `assets/rank-history-{light,dark}.svg` (pure stdlib SVG, no dependencies).
 - **`scripts/update.py`** — the orchestrator the workflow runs.
 - **`data/standing.json`, `data/history.csv`** — the latest snapshot and the full time series (committed each run, so the History table and rank deltas build themselves).
 
@@ -125,7 +137,7 @@ While running, the triggers were `0 13 * * *` and `0 1 * * *` (UTC) = **08:00 an
 Ideas that were on deck when the 2026 run wrapped — the tracker itself is complete and frozen at the final result:
 
 - **Per-match ✅/❌ grid** — fold in actual World Cup results to color each pick, not just the round tally.
-- **Rank sparkline** — render `history.csv` as an SVG trend committed alongside the README.
+- ~~**Rank sparkline** — render `history.csv` as an SVG trend committed alongside the README.~~ ✅ **Done** — see [Rank through the tournament](#-rank-through-the-tournament) (`scripts/chart.py`).
 - **GitHub Pages dashboard** — a richer public page beyond the README.
 - **Webhook-driven updates** — trigger a refresh the moment AgentMail receives a scoring email, via an `agentmail` inbound webhook, instead of waiting for the next cron.
 - **Multi-bracket support** — track several entries (and friends') on one board.
