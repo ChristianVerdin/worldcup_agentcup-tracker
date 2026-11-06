@@ -114,7 +114,7 @@ Ranking tiebreakers, in order: total points → most correct in higher rounds �
 2. **Add your API key as a secret:** repo **Settings → Secrets and variables → Actions → New repository secret**, named `AGENTMAIL_API_KEY`. GitHub encrypts it; it is never exposed in logs or to forks.
 3. **Edit `bracket.json`** — set `org_handle`, `bracket_id`, `send_from_inbox`, `digest_to`, and your `picks`.
 4. **Test it now:** the **Actions** tab → **Update bracket standing** → **Run workflow** (manual `workflow_dispatch`). Confirm the README updates and the digest email lands.
-5. The two **cron** triggers then run it automatically, morning and night.
+5. To schedule it, restore the two commented-out **cron** triggers in `.github/workflows/update.yml`. They ran it automatically twice a day, morning and night, through the 2026 World Cup.
 
 **Local run** (optional):
 ```bash
